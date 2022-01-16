@@ -22,10 +22,15 @@ usage: main.py [-h] [--env-name ENV_NAME] [--policy POLICY] [--num_k NUM_K] [--e
 
 (Note: There is no need for setting Temperature(`--alpha`) if `--automatic_entropy_tuning` is True.)
 
-#### For SAC
+#### For SAC+GMM
 
 ```
 python main.py --env-name Humanoid-v2 --alpha 0.05 --policy GaussianMixture --num_k 10
+```
+#### For SAC+single gaussian
+
+```
+python main.py --env-name Humanoid-v2 --alpha 0.05 
 ```
 
 #### For SAC (Hard Update)
