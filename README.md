@@ -1,10 +1,6 @@
 ### Description
 ------------
-Reimplementation of [Soft Actor-Critic Algorithms and Applications](https://arxiv.org/pdf/1812.05905.pdf) and a deterministic variant of SAC from [Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement
-Learning with a Stochastic Actor](https://arxiv.org/pdf/1801.01290.pdf).
-
-Added another branch for [Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement
-Learning with a Stochastic Actor](https://arxiv.org/pdf/1801.01290.pdf) -> [SAC_V](https://github.com/pranz24/pytorch-soft-actor-critic/tree/SAC_V).
+Implementation of Action quantization.
 
 ### Requirements
 ------------
@@ -16,7 +12,7 @@ Learning with a Stochastic Actor](https://arxiv.org/pdf/1801.01290.pdf) -> [SAC_
 ### Usage
 
 ```
-usage: main.py [-h] [--env-name ENV_NAME] [--policy POLICY] [--eval EVAL]
+usage: main.py [-h] [--env-name ENV_NAME] [--policy POLICY] [--num_k NUM_K] [--eval EVAL]
                [--gamma G] [--tau G] [--lr G] [--alpha G]
                [--automatic_entropy_tuning G] [--seed N] [--batch_size N]
                [--num_steps N] [--hidden_size N] [--updates_per_step N]
@@ -29,7 +25,7 @@ usage: main.py [-h] [--env-name ENV_NAME] [--policy POLICY] [--eval EVAL]
 #### For SAC
 
 ```
-python main.py --env-name Humanoid-v2 --alpha 0.05
+python main.py --env-name Humanoid-v2 --alpha 0.05 --policy GaussianMixture --num_k 10
 ```
 
 #### For SAC (Hard Update)
@@ -54,6 +50,7 @@ optional arguments:
   --env-name ENV_NAME   Mujoco Gym environment (default: HalfCheetah-v2)
   --policy POLICY       Policy Type: Gaussian | Deterministic (default:
                         Gaussian)
+  --num_k NUM_K         Number of Gaussians in the Gaussian Mixture Model
   --eval EVAL           Evaluates a policy a policy every 10 episode (default:
                         True)
   --gamma G             discount factor for reward (default: 0.99)
