@@ -1,2 +1,0 @@
-import mujoco_py
-
